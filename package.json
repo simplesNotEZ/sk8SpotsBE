@@ -1,0 +1,20 @@
+{
+  "name": "sk8SpotsBE",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simplesNotEZ/sk8SpotsBE.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/simplesNotEZ/sk8SpotsBE/issues"
+  },
+  "homepage": "https://github.com/simplesNotEZ/sk8SpotsBE#readme"
+}
