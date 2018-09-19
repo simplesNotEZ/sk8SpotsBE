@@ -105,5 +105,7 @@ exports.seed = function(knex, Promise) {
           description: "As required by California law, all participants will be allowed to enter or remain in the Vans Skatepark (the “Park”) if they are wearing full protective gear, including, but not limited to, a helmet and hard-shell elbow and knee pads. Helmets must be buckled at all times while in the Park. Participants over the age of 18 may opt to wear only a helmet and no knee or elbow pads."
         }
       ]);
+    }).then(() => {
+      return knex.raw("ALTER SEQUENCE someday_id_seq RESTART WITH 12;");
     });
 };
