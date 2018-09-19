@@ -5,8 +5,8 @@ const queries = require("../skatespotsDB/queries")
 
 router.get('/', (req,res,next) => {
     queries.list('yesterday')
-    .then(data_from_table => {
-        res.json({data})
+    .then(yesterdaySpots => {
+        res.json({yesterdaySpots})
     })
 })
 

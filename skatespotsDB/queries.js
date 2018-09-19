@@ -1,8 +1,8 @@
 const database = require("./database-connection");
 
 module.exports = {
-    list(){
-        return database('table_name');
+    list(tableName){
+        return database(tableName);
     },
     read(id){
         return database('table_name').where('id', id).returning('*')

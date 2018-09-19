@@ -11,6 +11,9 @@ const yesterday = require('./routes/yesterday.js');
 app.use(cors());
 app.use(bodyParser.json());
 
+app.use('/someday', someday);
+app.use('/yesterday', yesterday);
+
 app.listen(port, () => {
     console.log(`I am listening on ${port}`)
 })
