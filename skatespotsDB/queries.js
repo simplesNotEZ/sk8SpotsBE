@@ -2,14 +2,16 @@ const database = require("./database-connection");
 
 module.exports = {
     list(tableName){
+        console.log("list query running.");
         return database(tableName);
     },
-    read(id){
-        return database('table_name').where('id', id).returning('*')
+    read(tableName, id){
+        return database(tableName).where('id', id).returning('*')
             .then(record => record[0])
     },
-    create(table_object){
-        return database('table_name').insert(table_object).returning('*')
+    post(tableName, table_object){
+        console.log("is this thing on?");
+        return database(tableName).insert(table_object).returning('*')
             .then(record => record[0])
     },
     update(id, table_object){

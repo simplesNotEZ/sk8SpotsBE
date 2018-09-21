@@ -4,6 +4,7 @@ const router = express.Router()
 const queries = require("../skatespotsDB/queries")
 
 router.get('/', (req,res,next) => {
+    console.log("Someday get");
     queries.list('someday')
     .then(somedaySpots => {
         res.json({somedaySpots})
@@ -18,7 +19,8 @@ router.get('/:id', function(request,response){
     })
 })
 
-router.post('/', function(request,response,next){
+router.post('/', function(request,response){
+    console.log("Someday route");
     queries.post('someday', request.body)
     .then(new_table_object => {
         response.status(201).json({new_table_object})
@@ -39,7 +41,7 @@ router.delete('/:id', function(request,response,next){
 
 router.use(function(error,request,response,next){
     console.error(error.stack)
-    response.status(400).send('Error Something Went Wrong')
+    response.status(400).send('Error Biotch: Something Went Wrong')
 })
 
 module.exports = router

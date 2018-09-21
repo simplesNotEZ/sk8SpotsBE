@@ -4,7 +4,7 @@ const knex = require('knex');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const app = express();
-const port = process.env.PORT || 9000
+const port = 9000;
 const someday = require('./routes/someday.js');
 const yesterday = require('./routes/yesterday.js');
 
@@ -17,3 +17,5 @@ app.use('/yesterday', yesterday);
 app.listen(port, () => {
     console.log(`I am listening on ${port}`)
 })
+
+//process.env.PORT ||
