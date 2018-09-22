@@ -4,7 +4,7 @@ const router = express.Router()
 const queries = require("../skatespotsDB/queries")
 
 router.get('/', (req,res,next) => {
-    console.log("Someday get");
+    console.log("Someday GET request using queries.list");
     queries.list('someday')
     .then(somedaySpots => {
         res.json({somedaySpots})
@@ -33,10 +33,12 @@ router.put('/:id', function(request,response,next){
 })
 
 router.delete('/:id', function(request,response,next){
-    queries.deleteOne('someday', request.params.id)
+    console.log("the router.delete shyte");
+    console.log("request.params are: ", request.params);
+    queries.delete('someday', request.params.id)
     .then(() => {
         response.status(204).json()
-    })
+    });
 })
 
 router.use(function(error,request,response,next){

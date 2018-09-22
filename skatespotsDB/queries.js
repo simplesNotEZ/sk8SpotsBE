@@ -10,17 +10,18 @@ module.exports = {
             .then(record => record[0])
     },
     post(tableName, table_object){
-        console.log("is this thing on?");
+        console.log("post query running");
         return database(tableName).insert(table_object).returning('*')
-            .then(record => record[0])
+            .then(record => record[0]);
     },
     update(id, table_object){
         return database('table_name').update(table_object).where('id', id).returning('*');
-            //.then(record => record[0])  
+            //.then(record => record[0]); 
             //Do I need the above when the same thing is basically in the router.put?
     },
-    delete(id){
-        return database('table_name').del().where('id', id);
+    delete(tableName, id){
+        console.log("the id passed to queries.delete: ", id);
+        return database(tableName).del().where('id', id);
     }
 };
 
