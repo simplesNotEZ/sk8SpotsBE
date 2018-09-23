@@ -28,8 +28,9 @@ router.post('/', function(request,response){
 })
 
 router.put('/:id', function(request,response,next){
+    console.log("router.put accessed.  request.params: ", request.params);
     queries.update('someday', request.params.id, request.body)
-    .then(updated_table_object => response.json(updated_table_object))
+    .then(updatedSpot => response.status(201).json({updatedSpot}))
 })
 
 router.delete('/:id', function(request,response,next){
