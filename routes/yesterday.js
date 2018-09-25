@@ -4,6 +4,7 @@ const router = express.Router()
 const queries = require("../skatespotsDB/queries")
 
 router.get('/', (req,res,next) => {
+    console.log("Yesterday GET request using queries.list");
     queries.list('yesterday')
     .then(yesterdaySpots => {
         res.json({yesterdaySpots})
@@ -19,6 +20,7 @@ router.get('/:id', function(request,response){
 })
 
 router.post('/', function(request,response,next){
+    console.log("Yesterday post route");
     queries.post('yesterday', request.body)
     .then(new_table_object => {
         response.status(201).json({new_table_object})
@@ -26,12 +28,15 @@ router.post('/', function(request,response,next){
 })
 
 router.put('/:id', function(request,response,next){
+    console.log("router.put (of yesterday) accessed.  request.params: ", request.params);
     queries.update('yesterday', request.params.id, request.body)
-    .then(updated_table_object => response.json(updated_table_object))
+    .then(updatedSpot=> response.status(201).json(updatedSpot))
 })
 
 router.delete('/:id', function(request,response,next){
-    queries.deleteOne('yesterday', request.params.id)
+    console.log("the router.delete shyte from Yesterday");
+    console.log("request.params are: ", request.params);
+    queries.delete('yesterday', request.params.id)
     .then(() => {
         response.status(204).json()
     })
