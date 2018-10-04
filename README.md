@@ -29,6 +29,9 @@ React
 
 Hosted on Firebase
 
+#### Front-end repo
+https://github.com/simplesNotEZ/sk8SpotsFE
+
 ### Back-end:
 Node
 
